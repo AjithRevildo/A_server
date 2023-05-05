@@ -1,0 +1,36 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/checkUrls",
+        "methods": "GET",
+        "dest": "/index.js"
+      },
+      {
+        "src": "/api/system-info",
+        "methods": "GET",
+        "dest": "/index.js"
+      },
+      {
+        "src": "/api/network-info",
+        "methods": "GET",
+        "dest": "/index.js"
+      },
+      {
+        "src": "/api/ping",
+        "methods": "GET",
+        "dest": "/index.js"
+      }
+
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
+  
