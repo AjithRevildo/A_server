@@ -9,25 +9,24 @@
     "routes": [
       {
         "src": "/checkUrls",
-        "methods": "GET",
+        "methods": ["GET"],
         "dest": "/index.js"
       },
       {
         "src": "/api/system-info",
-        "methods": "GET",
+        "methods": ["GET"],
         "dest": "/index.js"
       },
       {
         "src": "/api/network-info",
-        "methods": "GET",
+        "methods": ["GET"],
         "dest": "/index.js"
       },
       {
         "src": "/api/ping",
-        "methods": "GET",
+        "methods": ["GET"],
         "dest": "/index.js"
       }
-
     ],
     "env": {
       "NODE_ENV": "production"
