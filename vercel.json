@@ -1,35 +1,68 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "index.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/checkUrls",
-        "methods": ["GET"],
-        "dest": "/index.js"
-      },
-      {
-        "src": "/api/system-info",
-        "methods": ["GET"],
-        "dest": "/index.js"
-      },
-      {
-        "src": "/api/network-info",
-        "methods": ["GET"],
-        "dest": "/index.js"
-      },
-      {
-        "src": "/api/ping",
-        "methods": ["GET"],
-        "dest": "/index.js"
-      }
-    ],
-    "env": {
-      "NODE_ENV": "production"
+  "functions": {
+    "api/system-info": {
+      "runtime": "vercel.node",
+      "memory": 128
+    },
+    "api/network-info": {
+      "runtime": "vercel.node",
+      "memory": 128
+    },
+    "api/ping": {
+      "runtime": "vercel.node",
+      "memory": 128
     }
-  }
-  
+  },
+  "rewrites": [
+    {
+      "source": "/fastest-urls",
+      "destination": "/api/fastest-urls"
+    },
+    {
+      "source": "/checkUrls",
+      "destination": "/api/checkUrls"
+    }
+  ],
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/system-info",
+      "dest": "/api/system-info"
+    },
+    {
+      "src": "/api/network-info",
+      "dest": "/api/network-info"
+    },
+    {
+      "src": "/api/ping",
+      "dest": "/api/ping"
+    },
+    {
+      "src": "/api/fastest-urls",
+      "dest": "/api/fastest-urls"
+    },
+    {
+      "src": "/api/checkUrls",
+      "dest": "/api/checkUrls"
+    },
+    {
+      "src": "/(.)",
+      "dest": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Origin, X-Requested-With, Content-Type, Accept"
+        }
+      ]
+    }
+  ]
+}
