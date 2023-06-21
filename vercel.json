@@ -1,16 +1,13 @@
 {
   "functions": {
-    "api/system-info": {
-      "runtime": "vercel.node@1.0.0",
-      "memory": 128
+ "api/system-info": {
+      "runtime": "nodejs14"
     },
     "api/network-info": {
-      "runtime": "vercel.node@1.0.0",
-      "memory": 128
+      "runtime": "nodejs14"
     },
     "api/ping": {
-      "runtime": "vercel.node@1.0.0",
-      "memory": 128
+      "runtime": "nodejs14"
     }
   },
   "rewrites": [
