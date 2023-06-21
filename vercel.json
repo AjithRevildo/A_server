@@ -1,16 +1,15 @@
 {
-    "routes": [
-      { "src": "/api/system-info", "dest": "/api/system-info" },
-      { "src": "/api/network-info", "dest": "/api/network-info" },
-      { "src": "/api/ping", "dest": "/api/ping" },
-      { "src": "/checkUrls", "dest": "/checkUrls" },
-      { "src": "/fastest-urls", "dest": "/fastest-urls" }
-    ],
-    "build": {
-      "env": {
-        "NODE_VERSION": "14.17.0"
-      },
-      "command": "npm run start"
+  "routes": [
+    { "src": "/api/system-info", "dest": "/api/system-info" },
+    { "src": "/api/network-info", "dest": "/api/network-info" },
+    { "src": "/api/ping", "dest": "/api/ping" },
+    { "src": "/checkUrls", "dest": "/checkUrls" },
+    { "src": "/fastest-urls", "dest": "/fastest-urls" }
+  ],
+  "build": {
+    "env": {
+      "NODE_VERSION": "14.17.0"
     }
   }
-  
+}
+
