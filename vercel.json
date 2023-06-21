@@ -21,33 +21,30 @@
     {
       "source": "/checkUrls",
       "destination": "/api/checkUrls"
-    }
-  ],
-  "version": 2,
-  "routes": [
-    {
-      "src": "/api/system-info",
-      "dest": "/api/system-info"
     },
     {
-      "src": "/api/network-info",
-      "dest": "/api/network-info"
+      "source": "/api/system-info",
+      "destination": "/api/system-info"
     },
     {
-      "src": "/api/ping",
-      "dest": "/api/ping"
+      "source": "/api/network-info",
+      "destination": "/api/network-info"
     },
     {
-      "src": "/api/fastest-urls",
-      "dest": "/api/fastest-urls"
+      "source": "/api/ping",
+      "destination": "/api/ping"
     },
     {
-      "src": "/api/checkUrls",
-      "dest": "/api/checkUrls"
+      "source": "/api/fastest-urls",
+      "destination": "/api/fastest-urls"
     },
     {
-      "src": "/(.)",
-      "dest": "/"
+      "source": "/api/checkUrls",
+      "destination": "/api/checkUrls"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
     }
   ],
   "headers": [
