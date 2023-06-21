@@ -1,15 +1,15 @@
 {
   "functions": {
     "api/system-info": {
-      "runtime": "vercel.node",
+      "runtime": "vercel.node@1.0.0",
       "memory": 128
     },
     "api/network-info": {
-      "runtime": "vercel.node",
+      "runtime": "vercel.node@1.0.0",
       "memory": 128
     },
     "api/ping": {
-      "runtime": "vercel.node",
+      "runtime": "vercel.node@1.0.0",
       "memory": 128
     }
   },
