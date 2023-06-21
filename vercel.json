@@ -1,12 +1,72 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "server.js", "use": "@vercel/node" }
+  "functions": {
+    "api/system-info": {
+      "runtime": "nodejs14"
+    },
+    "api/network-info": {
+      "runtime": "nodejs14"
+    },
+    "api/ping": {
+      "runtime": "nodejs14"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/fastest-urls",
+      "destination": "/api/fastest-urls"
+    },
+    {
+      "source": "/checkUrls",
+      "destination": "/api/checkUrls"
+    },
+    {
+      "source": "/api/system-info",
+      "destination": "/api/system-info"
+    },
+    {
+      "source": "/api/network-info",
+      "destination": "/api/network-info"
+    },
+    {
+      "source": "/api/ping",
+      "destination": "/api/ping"
+    },
+    {
+      "source": "/api/fastest-urls",
+      "destination": "/api/fastest-urls"
+    },
+    {
+      "source": "/api/checkUrls",
+      "destination": "/api/checkUrls"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
+    }
   ],
-  "routes": [
-    { "src": "/fastest-urls", "dest": "/api/fastest-urls" },
-    { "src": "/checkUrls", "dest": "/api/checkUrls" },
-    { "src": "/api/.*", "dest": "/api/server.js" },
-    { "src": "/(.*)", "dest": "/server.js" }
-  ]
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Origin, X-Requested-With, Content-Type, Accept"
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "axios": "^1.4.0",
+    "express": "^4.18.2",
+    "network": "^0.6.1",
+    "node-wmi": "^0.0.5",
+    "ping": "^0.4.4",
+    "si": "^2.0.0",
+    "systeminformation": "^5.17.12",
+    "xlsx": "^0.18.5"
+  }
 }
