@@ -11,13 +11,12 @@ const https = require('https');
 
 
 
-// enable CORS for requests coming from http://localhost:3000
+// Enable CORS for requests coming from http://localhost:3000
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
-
 
 const urls = [
   { name: 'Med Mandra(Integrated)', url: 'http://his-chn.apollohospitals.com:8383/' },
@@ -103,6 +102,9 @@ async function checkUrls() {
 // Endpoint to get the status of URLs
 app.get('/checkUrls', async (req, res) => {
   const { results, timestamp } = await checkUrls();
+   // Add CORS headers to the response
+   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.json({ results, timestamp });
 });
 
